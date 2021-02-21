@@ -29,4 +29,4 @@ mongoose.connect(
 
 
 const portback=3030
-app2.listen(portback)
+app2.listen(process.env.PORT ||portback)
