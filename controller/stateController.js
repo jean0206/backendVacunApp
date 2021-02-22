@@ -46,4 +46,22 @@ const editState = async (req, res) => {
   }
 };
 
-module.exports = { getStates, chargeDatas, getEditableStates, editState };
+const addState = async (req,res) => {
+  const newState = new stateSchema({
+    nameState: "Bogotá",
+    vaccinated: 0,
+    population: 0,
+    percentage: 0
+  });
+  try {
+    const stateSaved = await newState.save();
+  res.json(stateSaved)
+  } catch (error) {
+      res.json(error.message)
+  }
+  
+} 
+
+
+
+module.exports = { getStates, chargeDatas, getEditableStates, editState ,addState};

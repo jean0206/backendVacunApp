@@ -3,6 +3,7 @@ const express=require('express')
 const mongoose = require("mongoose");
 const dataRoutes = require('./routes/stateRoutes')
 const userRoutes = require('./routes/userRoutes')
+const vaccineRoutes = require('./routes/vaccineRoute')
 var cors = require('cors')
 const bodyParse = require("body-parser");
 
@@ -16,6 +17,7 @@ app2.use(cors())
 app2.use(bodyParse.json());
 app2.use('/state',dataRoutes)
 app2.use('/user',userRoutes)
+app2.use('/vaccine',vaccineRoutes)
 app2.use(express.json())
 
 mongoose.connect(
